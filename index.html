@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ModelLens — See Why Your Model Decides</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="#" class="logo">
+            <span class="logo-mark">M</span>
+            <span>ModelLens</span>
+        </a>
+        <nav>
+            <a href="#product">Product</a>
+            <a href="#explore">Explore</a>
+            <a href="#why">Why ModelLens</a>
+        </nav>
+        <a href="#explore" class="nav-button">Try the demo →</a>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-left">
+                <div class="eyebrow">
+                    <span>01</span>
+                    MODEL INTERPRETATION
+                </div>
+                <h1>
+                    Your model made
+                    <em>a prediction.</em>
+                </h1>
+                <p class="hero-text">
+                    ModelLens helps you understand what influenced
+                    that prediction — without turning model behavior
+                    into a black box.
+                </p>
+                <a href="#explore" class="hero-button">
+                    Explore the model
+                    <span>↘</span>
+                </a>
+            </div>
+
+            <div class="hero-product">
+                <div class="product-top">
+                    <span id="heroCustomer">CUSTOMER / 0248</span>
+                    <span class="status">● ANALYZED</span>
+                </div>
+                <div class="product-title">
+                    <span id="heroLabel">CHURN PROBABILITY</span>
+                    <strong id="heroPrediction">82%</strong>
+                </div>
+                <div class="risk">
+                    <span>RESULT</span>
+                    <strong id="heroRisk">HIGH</strong>
+                </div>
+                <div class="influence">
+                    <div class="influence-head">
+                        <span>FEATURE INFLUENCE</span>
+                        <span>WEIGHT</span>
+                    </div>
+                    <div class="influence-row" id="heroFeature1">
+                        <span>Monthly charges</span>
+                        <div class="line"><i style="width: 82%;"></i></div>
+                        <b>82</b>
+                    </div>
+                    <div class="influence-row" id="heroFeature2">
+                        <span>Contract type</span>
+                        <div class="line"><i style="width: 67%;"></i></div>
+                        <b>67</b>
+                    </div>
+                    <div class="influence-row" id="heroFeature3">
+                        <span>Customer tenure</span>
+                        <div class="line"><i style="width: 54%;"></i></div>
+                        <b>54</b>
+                    </div>
+                </div>
+                <div class="product-footer">
+                    <span>MODEL</span>
+                    <strong id="heroModel">LOGISTIC REGRESSION</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRO -->
+        <section class="intro" id="product">
+            <div class="section-number">02 / THE PROBLEM</div>
+            <div class="intro-content">
+                <h2>
+                    A prediction without
+                    <span>context is only a number.</span>
+                </h2>
+                <p>
+                    ModelLens connects the output of a machine-learning
+                    model with the inputs that shaped it.
+                </p>
+            </div>
+        </section>
+
+        <!-- FLOW -->
+        <section class="flow-section">
+            <div class="section-number">03 / FROM INPUT TO INSIGHT</div>
+            <div class="flow">
+                <div class="flow-card input-card">
+                    <div class="flow-label">INPUT</div>
+                    <h3>Customer profile</h3>
+                    <div class="input-item">
+                        <span>Monthly charges</span>
+                        <strong>₹72</strong>
+                    </div>
+                    <div class="input-item">
+                        <span>Contract</span>
+                        <strong>Monthly</strong>
+                    </div>
+                    <div class="input-item">
+                        <span>Tenure</span>
+                        <strong>18 months</strong>
+                    </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-card prediction-card">
+                    <div class="flow-label">PREDICTION</div>
+                    <div class="big-number">82<span>%</span></div>
+                    <p>Probability of customer churn</p>
+                    <div class="prediction-line"></div>
+                    <strong>HIGH RISK</strong>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-card why-card">
+                    <div class="flow-label">EXPLANATION</div>
+                    <h3>Why?</h3>
+                    <div class="why-item">
+                        <span>01</span>
+                        <p>Monthly charges</p>
+                        <strong>HIGH</strong>
+                    </div>
+                    <div class="why-item">
+                        <span>02</span>
+                        <p>Contract type</p>
+                        <strong>HIGH</strong>
+                    </div>
+                    <div class="why-item">
+                        <span>03</span>
+                        <p>Customer tenure</p>
+                        <strong>MEDIUM</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPLORE -->
+        <section class="explore-section" id="explore">
+            <div class="explore-heading">
+                <div class="section-number">04 / EXPLORE THE MODEL</div>
+                <h2>
+                    Change one thing.
+                    <br>
+                    <span>Watch the decision move.</span>
+                </h2>
+                <p>
+                    Select a dataset and model, then adjust inputs
+                    to see how predictions respond in real-time.
+                </p>
+            </div>
+
+            <!-- DATASET SELECTOR -->
+            <div class="selector-section">
+                <div class="selector-label">01 — CHOOSE A DATASET</div>
+                <div class="dataset-grid" id="datasetGrid"></div>
+            </div>
+
+            <!-- MODEL SELECTOR -->
+            <div class="selector-section">
+                <div class="selector-label">02 — CHOOSE A MODEL</div>
+                <div class="model-tabs" id="modelTabs"></div>
+                <p class="model-desc" id="modelDesc"></p>
+            </div>
+
+            <!-- EXPLORER -->
+            <div class="explorer">
+                <div class="controls">
+                    <div class="control-header">
+                        <span>INPUT VARIABLE</span>
+                        <span>VALUE</span>
+                    </div>
+                    <div id="controlsBody"></div>
+                    <button id="analyze">
+                        Run prediction
+                        <span>↗</span>
+                    </button>
+                    <p class="sample-note">Demonstration · Simulated model output</p>
+                </div>
+
+                <div class="live-result">
+                    <div class="result-top">
+                        <span>LIVE OUTPUT</span>
+                        <span id="resultStatus">UPDATED</span>
+                    </div>
+                    <div class="result-number">
+                        <span id="prediction">82</span>
+                        <small id="predictionUnit">%</small>
+                    </div>
+                    <div class="result-description">
+                        <span id="riskText">HIGH RISK</span>
+                        <p id="message">This profile contains several signals associated with customer churn.</p>
+                    </div>
+                    <div class="result-bars">
+                        <div class="result-bar">
+                            <div>
+                                <span id="barLabel1">Monthly charges</span>
+                                <b id="bar1Value">82</b>
+                            </div>
+                            <div class="bar"><i id="bar1"></i></div>
+                        </div>
+                        <div class="result-bar">
+                            <div>
+                                <span id="barLabel2">Contract type</span>
+                                <b id="bar2Value">67</b>
+                            </div>
+                            <div class="bar"><i id="bar2"></i></div>
+                        </div>
+                        <div class="result-bar">
+                            <div>
+                                <span id="barLabel3">Customer tenure</span>
+                                <b id="bar3Value">54</b>
+                            </div>
+                            <div class="bar"><i id="bar3"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY -->
+        <section class="why-section" id="why">
+            <div class="section-number">05 / WHY MODEL LENS</div>
+            <div class="why-layout">
+                <h2>
+                    Don't just ask
+                    <span>what.</span>
+                    <br>
+                    Ask why.
+                </h2>
+                <div class="principles">
+                    <div class="principle">
+                        <span>01</span>
+                        <div>
+                            <h3>See the relationship</h3>
+                            <p>Connect a model prediction back to the inputs that influenced it.</p>
+                        </div>
+                    </div>
+                    <div class="principle">
+                        <span>02</span>
+                        <div>
+                            <h3>Explore the change</h3>
+                            <p>Adjust an input and observe how the prediction responds.</p>
+                        </div>
+                    </div>
+                    <div class="principle">
+                        <span>03</span>
+                        <div>
+                            <h3>Make it understandable</h3>
+                            <p>Turn model behavior into information people can actually reason about.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL -->
+        <section class="final">
+            <div class="final-number">06</div>
+            <h2>
+                Understand the
+                <span>decision.</span>
+            </h2>
+            <p>Explore the ModelLens demonstration.</p>
+            <a href="#explore">Start exploring →</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <span>M</span>
+            ModelLens
+        </div>
+        <p>A conceptual ML exploration experience.</p>
+        <span>© 2026</span>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
